@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
             alertDialog.setCancelable(false);
             alertDialog.show();
         });
+
         activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
             @Override
             public void onActivityResult(ActivityResult result) {
@@ -89,9 +90,8 @@ public class MainActivity extends AppCompatActivity {
         String destinationString = new StringBuilder(UUID.randomUUID().toString()).append(".jpg").toString();
         Uri destinationUri = Uri.fromFile(new File(getCacheDir(),destinationString));
         UCrop.of(sourceUri,destinationUri)
+                .withMaxResultSize(1920, 1920)
                 .withAspectRatio(1, 1)
-                .withMaxResultSize(2000, 2000)
-                .useSourceImageAspectRatio()
                 .start(this);
     }
 
