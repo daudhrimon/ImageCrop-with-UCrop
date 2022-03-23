@@ -19,13 +19,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.yalantis.ucrop.UCrop;
-import com.yalantis.ucrop.UCropFragment;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.UUID;
-
-import okhttp3.Cache;
 
 public class MainActivity extends AppCompatActivity {
     private ImageView img;
@@ -43,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         btn.setOnClickListener(view -> {
             AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-            View view1 = LayoutInflater.from(this).inflate(R.layout.dialog, null);
+            View view1 = LayoutInflater.from(this).inflate(R.layout.dialog_layout, null);
             alertDialog.setView(view1);
             ImageView camera = view1.findViewById(R.id.camera);
             ImageView gallery = view1.findViewById(R.id.gallery);
